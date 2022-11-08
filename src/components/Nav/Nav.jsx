@@ -8,7 +8,7 @@ const Nav = () => {
         <Link to="/" className="text-decoration-none fs-2">
           Home
         </Link>
-        <Link to="/service" className="text-decoration-none fs-2">
+        <Link to="/services" className="text-decoration-none fs-2">
           Service
         </Link>
         <Link to="/blogs" className="text-decoration-none fs-2">
