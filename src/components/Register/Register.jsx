@@ -1,14 +1,12 @@
 import React from "react";
-import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
 import img from "../Home/banner.jpg";
 
-const Login = () => {
+const Register = () => {
   return (
-    <div className="form-signin col-6 m-auto text-center mt-4">
-      <form>
+    <div className="text-center mt-4">
+      <form className="col-6 mx-auto">
         <img className="mb-2" src={img} alt="" width="72" height="57" />
-        <h1 className="h3 mb-3 fw-normal">Please Log in</h1>
+        <h1 className="h3 mb-3 fw-normal">Please Register</h1>
 
         <div className="form-floating">
           <input
@@ -21,6 +19,24 @@ const Login = () => {
         </div>
         <div className="form-floating my-2">
           <input
+            type="text"
+            className="form-control"
+            id="floatingInput"
+            placeholder="Name"
+          />
+          <label for="floatingInput">Name:</label>
+        </div>
+        <div className="form-floating">
+          <input
+            type="url"
+            className="form-control"
+            id="floatingInput"
+            placeholder="Enter photo url"
+          />
+          <label for="floatingInput">Enter photo url:</label>
+        </div>
+        <div className="form-floating my-2">
+          <input
             type="password"
             className="form-control"
             id="floatingPassword"
@@ -30,21 +46,11 @@ const Login = () => {
         </div>
 
         <button className="w-100 btn btn-lg btn-primary" type="submit">
-          Log in
+          Register
         </button>
       </form>
-      <div className="google-create d-flex justify-content-between mt-2">
-        <div className="google">
-          <FcGoogle className="fs-1"></FcGoogle>
-        </div>
-        <div className="create">
-          <Link to="/register">
-            <button className="btn btn-primary">Register</button>
-          </Link>
-        </div>
-      </div>
     </div>
   );
 };
 
-export default Login;
+export default Register;

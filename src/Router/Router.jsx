@@ -5,6 +5,7 @@ import ErrorPage from "../components/ErrorPage/ErrorPage";
 import Home from "../components/Home/Home";
 import Login from "../components/Login/Login";
 import Nav from "../components/Nav/Nav";
+import Register from "../components/Register/Register";
 import Service from "../components/Service/Service";
 import ServiceDetails from "../components/ServiceDetails/ServiceDetails";
 
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
       },
     ],
   },
