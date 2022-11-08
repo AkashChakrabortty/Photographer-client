@@ -6,6 +6,7 @@ import Home from "../components/Home/Home";
 import Login from "../components/Login/Login";
 import Nav from "../components/Nav/Nav";
 import Service from "../components/Service/Service";
+import ServiceDetails from "../components/ServiceDetails/ServiceDetails";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,13 @@ const router = createBrowserRouter([
           return fetch("http://localhost:5000/services");
         },
         element: <Service></Service>,
+      },
+      {
+        path: "/services/:id",
+        loader: async ({ params }) => {
+          return fetch(`http://localhost:5000/services/${params.id}`);
+        },
+        element: <ServiceDetails></ServiceDetails>,
       },
       {
         path: "/blogs",

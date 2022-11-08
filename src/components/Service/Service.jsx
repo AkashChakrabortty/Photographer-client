@@ -1,7 +1,7 @@
 import React from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 const Service = () => {
   const loaderData = useLoaderData();
   return (
@@ -10,27 +10,29 @@ const Service = () => {
         <div className="row row-cols-3 mt-3 mb-3">
           {loaderData.map((item) => {
             return (
-              <div className="col text-center">
-                <div class="card">
+              <div className="col text-center" key={item._id}>
+                <div className="card">
                   <PhotoProvider>
                     <PhotoView src={item.img}>
                       <img
                         src={item.img}
-                        class="card-img-top"
+                        className="card-img-top"
                         alt="img"
                         style={{ height: "200px", cursor: "pointer" }}
                       />
                     </PhotoView>
                   </PhotoProvider>
 
-                  <div class="card-body">
-                    <h5 class="card-title">{item.name}</h5>
-                    <h5 class="card-title">{item.price}</h5>
-                    <p class="card-text">
+                  <div className="card-body">
+                    <h5 className="card-title">{item.name}</h5>
+                    <h5 className="card-title">{item.price}</h5>
+                    <p className="card-text">
                       {item.description.slice(0, 100)}
                       {item.description.slice(0, 100) ? "..." : ""}
                     </p>
-                    <button className="btn btn-primary">View details</button>
+                    <Link to={`/services/${item._id}`}>
+                      <button className="btn btn-primary">View details</button>
+                    </Link>
                   </div>
                 </div>
               </div>
