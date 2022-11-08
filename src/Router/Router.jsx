@@ -19,7 +19,10 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/home",
+        path: "/",
+        loader: async () => {
+          return fetch("http://localhost:5000/");
+        },
         element: <Home></Home>,
       },
       {

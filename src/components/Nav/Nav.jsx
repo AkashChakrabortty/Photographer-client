@@ -5,7 +5,7 @@ const Nav = () => {
   return (
     <div className="container mx-auto">
       <nav className="d-flex justify-content-evenly">
-        <Link to="/home">Home</Link>
+        <Link to="/">Home</Link>
         <Link to="/service">Service</Link>
         <Link to="/blogs">Blogs</Link>
         <Link to="/login">Login</Link>
