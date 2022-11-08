@@ -5,10 +5,18 @@ const Nav = () => {
   return (
     <div className="container mx-auto">
       <nav className="d-flex justify-content-evenly">
-        <Link to="/">Home</Link>
-        <Link to="/service">Service</Link>
-        <Link to="/blogs">Blogs</Link>
-        <Link to="/login">Login</Link>
+        <Link to="/" className="text-decoration-none fs-2">
+          Home
+        </Link>
+        <Link to="/service" className="text-decoration-none fs-2">
+          Service
+        </Link>
+        <Link to="/blogs" className="text-decoration-none fs-2">
+          Blogs
+        </Link>
+        <Link to="/login" className="text-decoration-none fs-2">
+          Login
+        </Link>
       </nav>
     </div>
   );

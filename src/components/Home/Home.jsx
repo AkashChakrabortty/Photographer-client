@@ -1,6 +1,7 @@
 import React from "react";
 import { BsFacebook, BsInstagram } from "react-icons/bs";
 import { useLoaderData } from "react-router-dom";
+import discount from "./87179-50-discount.gif";
 import img from "./banner.jpg";
 
 const Home = () => {
@@ -36,7 +37,30 @@ const Home = () => {
         <button className="btn btn-primary">see all</button>
       </div>
 
-      <footer className="mt-3">
+      <div className="discount d-flex gap-2">
+        <div className="animation col-5">
+          <img src={discount} alt="discount" className="img-fluid" />
+        </div>
+        <div className="text col-5 d-flex flex-column justify-content-center">
+          <h3>Get 50% discount first time booking</h3>
+        </div>
+      </div>
+
+      <div className="payment text-center mb-5">
+        <h2>You can Payment by</h2>
+        <div className="row">
+          <div className="col">
+            <h3>Bkash</h3>
+          </div>
+          <div className="col">
+            <h3>Nagad</h3>
+          </div>
+          <div className="col">
+            <h3>Rocket</h3>
+          </div>
+        </div>
+      </div>
+      <footer>
         <div className="d-flex justify-content-between">
           <div className="text">
             <span>© 2022 Company, Inc. All rights reserved.</span>
