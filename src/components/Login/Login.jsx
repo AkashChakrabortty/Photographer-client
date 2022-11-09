@@ -8,7 +8,16 @@ const Login = () => {
   const { googleSignIn } = useContext(userInfo);
   const handleGoogle = () => {
     console.log("done");
-    googleSignIn();
+    googleSignIn()
+      .then((result) => {
+        // The signed-in user info.
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
   };
   return (
     <div className="form-signin col-6 m-auto text-center mt-4">
