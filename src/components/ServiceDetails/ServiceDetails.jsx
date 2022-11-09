@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { userInfo } from "../../context/AuthProvider";
 import img from "../Home/banner.jpg";
 
 const ServiceDetails = () => {
   const loaderData = useLoaderData();
   console.log(loaderData);
+
+  const { user } = useContext(userInfo);
   return (
     <div className="container">
       <div className="service">
@@ -27,22 +30,25 @@ const ServiceDetails = () => {
         <p>review</p>
       </div>
       <div className="give-review">
-        <Link to="/login">
-          <button className="btn btn-primary">
-            Please login to add a review
-          </button>
-        </Link>
-        <form>
-          <textarea
-            class="form-control"
-            placeholder="Leave a review here"
-            id="floatingTextarea2"
-          ></textarea>
+        {user ? (
+          <form>
+            <textarea
+              class="form-control"
+              placeholder="Leave a review here"
+              id="floatingTextarea2"
+            ></textarea>
 
-          <button type="submit" className="btn btn-primary mt-2">
-            Submit
-          </button>
-        </form>
+            <button type="submit" className="btn btn-primary mt-2">
+              Submit
+            </button>
+          </form>
+        ) : (
+          <Link to="/login">
+            <button className="btn btn-primary">
+              Please login to add a review
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );

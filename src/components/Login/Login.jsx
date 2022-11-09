@@ -5,7 +5,7 @@ import { userInfo } from "../../context/AuthProvider";
 import img from "../Home/banner.jpg";
 
 const Login = () => {
-  const { googleSignIn } = useContext(userInfo);
+  const { googleSignIn, login } = useContext(userInfo);
   const handleGoogle = () => {
     console.log("done");
     googleSignIn()
@@ -19,15 +19,34 @@ const Login = () => {
         console.log(errorMessage);
       });
   };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    console.log(email, password);
+
+    login(email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
+  };
   return (
     <div className="form-signin col-6 m-auto text-center mt-4">
-      <form>
+      <form onSubmit={handleSubmit}>
         <img className="mb-2" src={img} alt="" width="72" height="57" />
         <h1 className="h3 mb-3 fw-normal">Please Log in</h1>
 
         <div className="form-floating">
           <input
             type="email"
+            name="email"
             className="form-control"
             id="floatingInput"
             placeholder="name@example.com"
@@ -37,6 +56,7 @@ const Login = () => {
         <div className="form-floating my-2">
           <input
             type="password"
+            name="password"
             className="form-control"
             id="floatingPassword"
             placeholder="Password"
