@@ -11,6 +11,7 @@ const AddService = () => {
     toast("Service add successfully.Please visit home to see your add");
   const { user } = useContext(userInfo);
   // console.log(user?.uid);
+
   const handleAdd = (item) => {
     // console.log(item);
     const userdb = {

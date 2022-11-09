@@ -1,13 +1,49 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { userInfo } from "../../context/AuthProvider";
-import img from "../Home/banner.jpg";
 
 const ServiceDetails = () => {
   const loaderData = useLoaderData();
-  console.log(loaderData);
-
   const { user } = useContext(userInfo);
+  console.log(user);
+  const [reviews, setReviews] = useState();
+  useEffect(() => {
+    fetch(`http://localhost:5000/review/`)
+      .then((res) => res.json())
+      .then((data) => {
+        setReviews(data);
+        console.log(reviews);
+        console.log(data);
+      });
+  }, [user]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const text = event.target.text.value;
+
+    const userdb = {
+      uid: user.uid,
+      serviceName: loaderData.name,
+      userName: user.displayName,
+      serviceId: loaderData._id,
+      img: user.photoURL,
+      text: text,
+    };
+
+    fetch("http://localhost:5000/review", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(userdb),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+    event.target.reset();
+  };
+
   return (
     <div className="container">
       <div className="service">
@@ -25,17 +61,28 @@ const ServiceDetails = () => {
         </div>
       </div>
       <div className="review">
-        <img src={img} alt="" style={{ height: "50px", borderRadius: "50%" }} />
-        <h2>Name</h2>
-        <p>review</p>
+        {reviews?.map((review) => {
+          return (
+            <div key={review._id}>
+              <img
+                src={review.img}
+                alt={review.userName}
+                style={{ height: "50px", borderRadius: "50%" }}
+              />
+              <h2>{review.userName}</h2>
+              <p> {review.text} </p>
+            </div>
+          );
+        })}
       </div>
       <div className="give-review">
         {user ? (
-          <form>
+          <form onSubmit={handleSubmit}>
             <textarea
-              class="form-control"
+              className="form-control"
               placeholder="Leave a review here"
               id="floatingTextarea2"
+              name="text"
             ></textarea>
 
             <button type="submit" className="btn btn-primary mt-2">
