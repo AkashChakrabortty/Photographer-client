@@ -11,29 +11,14 @@ const Register = () => {
     const name = event.target.name.value;
     const photoUrl = event.target.photoUrl.value;
 
-    // console.log(email, password);
-
     createUser(email, password)
       .then((userCredential) => {
-        // Signed in
-        // const user = userCredential.user;
-        // console.log(user);
         updateUser(name, photoUrl);
       })
       .catch((error) => {
         const errorMessage = error.message;
         console.log(errorMessage);
       });
-
-    // updateProfile(name, photoUrl)
-    //   .then((userCredential) => {
-    //     const user = userCredential.user;
-    //     console.log(user);
-    //   })
-    //   .catch((error) => {
-    //     const errorMessage = error.message;
-    //     console.log("updatee ", errorMessage);
-    //   });
   };
   return (
     <div className="text-center mt-4">
