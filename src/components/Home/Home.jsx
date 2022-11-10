@@ -3,10 +3,12 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import { Link, useLoaderData } from "react-router-dom";
 import { userInfo } from "../../context/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 import discount from "./87179-50-discount.gif";
 import img from "./banner.jpg";
 
 const Home = () => {
+  useTitle("Home");
   const loaderData = useLoaderData();
   const { user } = useContext(userInfo);
   // console.log(user);

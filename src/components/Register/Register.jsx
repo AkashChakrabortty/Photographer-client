@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { userInfo } from "../../context/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 import img from "../Home/banner.jpg";
 
 const Register = () => {
+  useTitle("Register");
   const { createUser, updateUser } = useContext(userInfo);
   const handleSubmit = (event) => {
     event.preventDefault();

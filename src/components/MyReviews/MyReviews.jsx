@@ -2,8 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { userInfo } from "../../context/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 
 const MyReviews = () => {
+  useTitle("My reviews");
   const { user } = useContext(userInfo);
   const [reviews, setReviews] = useState([]);
   const [delet, setDelete] = useState(false);

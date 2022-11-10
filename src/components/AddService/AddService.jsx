@@ -4,8 +4,10 @@ import { Link, useLoaderData } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { userInfo } from "../../context/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 
 const AddService = () => {
+  useTitle("Add service");
   const loaderData = useLoaderData();
   const notify = () =>
     toast("Service add successfully.Please visit home to see your add");
