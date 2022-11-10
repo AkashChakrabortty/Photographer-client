@@ -60,7 +60,7 @@ const MyReviews = () => {
           <div className="fs-1">No reviews were added</div>
         </div>
       ) : (
-        <div className="row row-cols-3">
+        <div className="row row-cols-sm-3 row-cols-2">
           {reviews?.map((review) => {
             return (
               <div className="col mx-auto text-center" key={review._id}>

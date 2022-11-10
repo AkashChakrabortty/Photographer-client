@@ -16,31 +16,31 @@ const Nav = () => {
       });
   };
   return (
-    <div className="container mx-auto">
+    <div className="p-2">
       <nav className="d-flex justify-content-evenly">
-        <Link to="/" className="text-decoration-none fs-2">
+        <Link to="/" className="text-decoration-none fs-5">
           Home
         </Link>
-        <Link to="/services" className="text-decoration-none fs-2">
+        <Link to="/services" className="text-decoration-none fs-5">
           Service
         </Link>
-        <Link to="/blogs" className="text-decoration-none fs-2">
+        <Link to="/blogs" className="text-decoration-none fs-5">
           Blogs
         </Link>
         {user ? (
           <>
-            <Link onClick={handleLogout} className="text-decoration-none fs-2">
+            <Link onClick={handleLogout} className="text-decoration-none fs-5">
               Logout
             </Link>
-            <Link to="/reviews" className="text-decoration-none fs-2">
+            <Link to="/reviews" className="text-decoration-none fs-5">
               My reviews
             </Link>
-            <Link to="/addService" className="text-decoration-none fs-2">
+            <Link to="/addService" className="text-decoration-none fs-5">
               Add Service
             </Link>
           </>
         ) : (
-          <Link to="/login" className="text-decoration-none fs-2">
+          <Link to="/login" className="text-decoration-none fs-5">
             Login
           </Link>
         )}

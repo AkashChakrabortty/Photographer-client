@@ -28,7 +28,7 @@ const Service = () => {
         </div>
       ) : (
         <div className="items">
-          <div className="row row-cols-3 mt-3 mb-3">
+          <div className="row row-cols-sm-3 row-cols-2 mt-3 mb-3">
             {loaderData?.map((item) => {
               return (
                 <div className="col text-center" key={item._id}>

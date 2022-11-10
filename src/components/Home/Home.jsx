@@ -25,11 +25,11 @@ const Home = () => {
   }, [user]);
   return (
     <div className="container">
-      <div className="col-8 mx-auto d-flex gap-2">
-        <div className="img col-5">
+      <div className="col-8 mx-auto d-sm-flex gap-2 text-center">
+        <div className="img col-5 mx-auto">
           <img src={img} alt="banner" className="img-fluid" />
         </div>
-        <div className="text col-5 d-flex flex-column justify-content-center">
+        <div className="text col-5 d-flex mx-auto flex-column justify-content-center">
           <h3>Photographer</h3>
           <p>
             Photographers use their technical expertise, creativity, and
@@ -39,10 +39,10 @@ const Home = () => {
         </div>
       </div>
       <div className="items">
-        <div className="row mt-3 mb-3">
+        <div className="row mt-3 mb-3 row-cols-2 row-cols-sm-3">
           {loaderData.map((item) => {
             return (
-              <div className="col text-center" key={item._id}>
+              <div className="col text-center mt-2 mx-auto" key={item._id}>
                 <div className="card">
                   <PhotoProvider>
                     <PhotoView src={item.img}>
@@ -80,7 +80,7 @@ const Home = () => {
       {user ? (
         <div className="addservice text-center">
           <h2>You add {addService?.length} services</h2>
-          <div className="row row-cols-3">
+          <div className="row row-cols-2 row-cols-sm-3">
             {addService?.map((item) => {
               return (
                 <div className="col mx-auto text-center" key={item._id}>
