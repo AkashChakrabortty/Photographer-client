@@ -34,6 +34,7 @@ const ServiceDetails = () => {
       img: user.photoURL,
       text: text,
       milliseconds: milliseconds,
+      // useridServiceid: user.uid + loaderData._id,
     };
 
     fetch("http://localhost:5000/review", {

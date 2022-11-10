@@ -23,17 +23,17 @@ const MyReviews = () => {
 
   const handleDelete = (serviceId) => {
     // event.preventDefault();
-
+    console.log(serviceId);
     const userdb = {
       uid: user.uid,
       serviceId: serviceId,
     };
-    fetch("http://localhost:5000/review/delete", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(userdb),
+    fetch(`http://localhost:5000/review/delete?id=${serviceId}`, {
+      method: "DELETE",
+      // headers: {
+      //   "content-type": "application/json",
+      // },
+      // body: JSON.stringify(userdb),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -62,7 +62,7 @@ const MyReviews = () => {
                     <p className="card-text">{review.text}</p>
                     <div className="dlt mb-2">
                       <button
-                        onClick={() => handleDelete(review.serviceId)}
+                        onClick={() => handleDelete(review._id)}
                         className="btn btn-primary"
                       >
                         Delete Review
