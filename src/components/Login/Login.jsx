@@ -1,20 +1,25 @@
 import React, { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { userInfo } from "../../context/AuthProvider";
 import useTitle from "../../hooks/useTitle";
 import img from "../Home/banner.jpg";
 
 const Login = () => {
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  // console.log(from);
+  const navigate = useNavigate();
   useTitle("Login");
   const { googleSignIn, login, loading, setLoading } = useContext(userInfo);
   const handleGoogle = () => {
-    console.log("done");
+    // console.log("done");
     googleSignIn()
       .then((result) => {
         // The signed-in user info.
         const user = result.user;
-        console.log(user);
+        // console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setLoading(false);
@@ -34,6 +39,7 @@ const Login = () => {
         // Signed in
         const user = userCredential.user;
         console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setLoading(false);

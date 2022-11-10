@@ -1,16 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useLocation } from "react-router-dom";
 import { userInfo } from "../../context/AuthProvider";
 import useTitle from "../../hooks/useTitle";
 
 const ServiceDetails = () => {
+  const location = useLocation();
+  console.log(location);
   useTitle("service details");
   const loaderData = useLoaderData();
   const { user } = useContext(userInfo);
   // console.log(user);
   const [reviews, setReviews] = useState();
   const [load, setLoad] = useState(false);
-  console.log(load);
+  // console.log(load);
   useEffect(() => {
     fetch(`http://localhost:5000/review/`)
       .then((res) => res.json())
@@ -98,7 +100,7 @@ const ServiceDetails = () => {
             </button>
           </form>
         ) : (
-          <Link to="/login">
+          <Link to="/login" state={{ from: location }} replace>
             <button className="btn btn-primary">
               Please login to add a review
             </button>

@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { userInfo } from "../../context/AuthProvider";
 import useTitle from "../../hooks/useTitle";
 import img from "../Home/banner.jpg";
 
 const Register = () => {
+  const navigate = useNavigate();
+
   useTitle("Register");
   const { createUser, updateUser, loading, setLoading } = useContext(userInfo);
   const handleSubmit = (event) => {
@@ -16,6 +19,7 @@ const Register = () => {
     createUser(email, password)
       .then((userCredential) => {
         updateUser(name, photoUrl);
+        navigate("/");
       })
       .catch((error) => {
         setLoading(false);

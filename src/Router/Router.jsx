@@ -2,6 +2,7 @@ import React from "react";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import AddService from "../components/AddService/AddService";
 import Blog from "../components/Blog/Blog";
+import EditReview from "../components/EditReview/EditReview";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import Footer from "../components/Footer/Footer";
 import Home from "../components/Home/Home";
@@ -61,6 +62,14 @@ const router = createBrowserRouter([
         path: "/reviews",
         element: <MyReviews></MyReviews>,
       },
+      {
+        path: "/reviews/:id",
+        element: <EditReview></EditReview>,
+      },
+      // {
+      //   path: "/reviewEdit",
+      //   element: <EditReview></EditReview>,
+      // },
       {
         path: "/addService",
         loader: async () => {

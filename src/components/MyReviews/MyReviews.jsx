@@ -6,6 +6,7 @@ import useTitle from "../../hooks/useTitle";
 
 const MyReviews = () => {
   useTitle("My reviews");
+  // const [edit, setEdit] = useState(false);
   const { user } = useContext(userInfo);
   const [reviews, setReviews] = useState([]);
   const [delet, setDelete] = useState(false);
@@ -41,7 +42,9 @@ const MyReviews = () => {
       });
     notify();
   };
-
+  // const handleEdit = () => {
+  //   setEdit(true);
+  // };
   return (
     <div className="container">
       {reviews.length === 0 ? (
@@ -70,9 +73,17 @@ const MyReviews = () => {
                       <ToastContainer />
                     </div>
 
-                    <Link>
+                    <Link to={`/reviews/:${review._id}`}>
                       <button className="btn btn-primary">Edit Review</button>
                     </Link>
+                    {/* <button className="btn btn-primary" onClick={handleEdit}>
+                      Edit Review
+                    </button> */}
+                    {/* {edit ? (
+                      <Navigate to={"/reviewEdit"}>
+                        <EditReview key={review._id} data={"h"}></EditReview>
+                      </Navigate>
+                    ) : undefined} */}
                   </div>
                 </div>
               </div>
