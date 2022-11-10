@@ -17,14 +17,15 @@ const ServiceDetails = () => {
       .then((data) => {
         setReviews(data);
         // console.log(reviews);
-        // console.log(data);
+        console.log(data);
       });
   }, [user, load]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const text = event.target.text.value;
-
+    const milliseconds = new Date().getTime();
+    // console.log(milliseconds)
     const userdb = {
       uid: user.uid,
       serviceName: loaderData.name,
@@ -32,6 +33,7 @@ const ServiceDetails = () => {
       serviceId: loaderData._id,
       img: user.photoURL,
       text: text,
+      milliseconds: milliseconds,
     };
 
     fetch("http://localhost:5000/review", {
@@ -44,9 +46,9 @@ const ServiceDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
+        setLoad(!load);
       });
     event.target.reset();
-    setLoad(!load);
   };
 
   return (
