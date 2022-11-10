@@ -1,14 +1,15 @@
-#live link:
-#features:
+# live link:
 
-# give review
+# features:
 
-# show others user review
+- give review
 
-# jwt token
+- show others user review
 
-# gmail and email password login
+- jwt token
 
-# add review
+- gmail and email password login
 
-# edit , delete review
+- add review
+
+- edit , delete review
