@@ -33,9 +33,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/services",
-        loader: async () => {
-          return fetch("http://localhost:5000/services");
-        },
+        // loader: async () => {
+        //   return fetch("http://localhost:5000/services");
+        // },
         element: <Service></Service>,
       },
       {

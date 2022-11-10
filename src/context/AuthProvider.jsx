@@ -16,13 +16,15 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState();
-
+  const [loading, setLoading] = useState(false);
   const provider = new GoogleAuthProvider();
 
   const googleSignIn = () => {
+    setLoading(true);
     return signInWithPopup(auth, provider);
   };
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
@@ -32,6 +34,7 @@ const AuthProvider = ({ children }) => {
         console.log(user);
         // const uid = user.uid;
         setUser(user);
+        setLoading(false);
       } else {
         // console.log("else onAuthStateChanged");
       }
@@ -55,6 +58,7 @@ const AuthProvider = ({ children }) => {
         alert("something wrong");
       });
   };
+  // console.log(loading);
   const authInfo = {
     googleSignIn,
     createUser,
@@ -63,6 +67,8 @@ const AuthProvider = ({ children }) => {
     user,
     setUser,
     updateUser,
+    loading,
+    setLoading,
   };
   return (
     <div>
