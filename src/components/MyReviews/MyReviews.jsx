@@ -12,7 +12,12 @@ const MyReviews = () => {
   const [delet, setDelete] = useState(false);
   const notify = () => toast("Delete success");
   useEffect(() => {
-    fetch(`http://localhost:5000/review/${user?.uid}`)
+    fetch(`http://localhost:5000/review/${user?.uid}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("photographer")}`,
+      },
+    })
+      // sODQYIgOH7MhVcKvQnjZV9aOo9x2
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
