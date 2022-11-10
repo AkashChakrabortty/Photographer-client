@@ -28,21 +28,20 @@ const router = createBrowserRouter([
       {
         path: "/",
         loader: async () => {
-          return fetch("http://localhost:5000/");
+          return fetch("https://server-omega-eosin.vercel.app/");
         },
         element: <Home></Home>,
       },
       {
         path: "/services",
-        // loader: async () => {
-        //   return fetch("http://localhost:5000/services");
-        // },
         element: <Service></Service>,
       },
       {
         path: "/services/:id",
         loader: async ({ params }) => {
-          return fetch(`http://localhost:5000/services/${params.id}`);
+          return fetch(
+            `https://server-omega-eosin.vercel.app/services/${params.id}`
+          );
         },
         element: <ServiceDetails></ServiceDetails>,
       },
@@ -66,14 +65,10 @@ const router = createBrowserRouter([
         path: "/reviews/:id",
         element: <EditReview></EditReview>,
       },
-      // {
-      //   path: "/reviewEdit",
-      //   element: <EditReview></EditReview>,
-      // },
       {
         path: "/addService",
         loader: async () => {
-          return fetch("http://localhost:5000/services");
+          return fetch("https://server-omega-eosin.vercel.app/services");
         },
         element: <AddService></AddService>,
       },

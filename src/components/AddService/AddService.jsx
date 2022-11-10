@@ -12,10 +12,8 @@ const AddService = () => {
   const notify = () =>
     toast("Service add successfully.Please visit home to see your add");
   const { user } = useContext(userInfo);
-  // console.log(user?.uid);
 
   const handleAdd = (item) => {
-    // console.log(item);
     const userdb = {
       uid: user.uid,
       name: item.name,
@@ -24,7 +22,7 @@ const AddService = () => {
       price: item.price,
       description: item.description,
     };
-    fetch("http://localhost:5000/addService", {
+    fetch("https://server-omega-eosin.vercel.app/addService", {
       method: "POST",
       headers: {
         "content-type": "application/json",

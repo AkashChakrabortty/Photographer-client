@@ -11,16 +11,14 @@ const Home = () => {
   useTitle("Home");
   const loaderData = useLoaderData();
   const { user } = useContext(userInfo);
-  // console.log(user);
+
   const [addService, setAddService] = useState();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/addService/${user?.uid}`)
+    fetch(`https://server-omega-eosin.vercel.app/addService/${user?.uid}`)
       .then((res) => res.json())
       .then((data) => {
         setAddService(data);
-        // console.log(addService);
-        // console.log(data);
       });
   }, [user]);
   return (

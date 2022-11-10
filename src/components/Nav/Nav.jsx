@@ -8,11 +8,10 @@ const Nav = () => {
   const handleLogout = () => {
     logout()
       .then(() => {
-        console.log("Sign-out successful.");
         setUser("");
       })
       .catch((error) => {
-        console.log("An error happened.");
+        alert("An error happened.");
       });
   };
   return (

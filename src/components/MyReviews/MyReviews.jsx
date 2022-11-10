@@ -6,50 +6,40 @@ import useTitle from "../../hooks/useTitle";
 
 const MyReviews = () => {
   useTitle("My reviews");
-  // const [edit, setEdit] = useState(false);
   const { user } = useContext(userInfo);
   const [reviews, setReviews] = useState([]);
   const [delet, setDelete] = useState(false);
   const notify = () => toast("Delete success");
   useEffect(() => {
-    fetch(`http://localhost:5000/review/${user?.uid}`, {
+    fetch(`https://server-omega-eosin.vercel.app/review/${user?.uid}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("photographer")}`,
       },
     })
-      // sODQYIgOH7MhVcKvQnjZV9aOo9x2
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
-        // console.log(reviews);
         setDelete(!delet);
-        // console.log(data);
       });
   }, [user, delet]);
 
   const handleDelete = (serviceId) => {
-    // event.preventDefault();
     console.log(serviceId);
     const userdb = {
       uid: user.uid,
       serviceId: serviceId,
     };
-    fetch(`http://localhost:5000/review/delete?id=${serviceId}`, {
-      method: "DELETE",
-      // headers: {
-      //   "content-type": "application/json",
-      // },
-      // body: JSON.stringify(userdb),
-    })
+    fetch(
+      `https://server-omega-eosin.vercel.app/review/delete?id=${serviceId}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
+      .then((data) => {});
     notify();
   };
-  // const handleEdit = () => {
-  //   setEdit(true);
-  // };
+
   return (
     <div className="container">
       {reviews.length === 0 ? (
@@ -81,14 +71,6 @@ const MyReviews = () => {
                     <Link to={`/reviews/:${review._id}`}>
                       <button className="btn btn-primary">Edit Review</button>
                     </Link>
-                    {/* <button className="btn btn-primary" onClick={handleEdit}>
-                      Edit Review
-                    </button> */}
-                    {/* {edit ? (
-                      <Navigate to={"/reviewEdit"}>
-                        <EditReview key={review._id} data={"h"}></EditReview>
-                      </Navigate>
-                    ) : undefined} */}
                   </div>
                 </div>
               </div>

@@ -8,17 +8,16 @@ import img from "../Home/banner.jpg";
 const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  // console.log(from);
+
   const navigate = useNavigate();
   useTitle("Login");
   const { googleSignIn, login, loading, setLoading } = useContext(userInfo);
   const handleGoogle = () => {
-    // console.log("done");
     googleSignIn()
       .then((result) => {
         // The signed-in user info.
         const user = result.user;
-        // console.log(user);
+
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -32,21 +31,18 @@ const Login = () => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-    // console.log(email, password);
 
     login(email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        // console.log(user);
 
         const currentUser = {
           uid: user.uid,
         };
 
-        // console.log(currentUser);
         // get jwt token
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://server-omega-eosin.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",

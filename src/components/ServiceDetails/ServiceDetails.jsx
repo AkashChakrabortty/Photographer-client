@@ -5,21 +5,17 @@ import useTitle from "../../hooks/useTitle";
 
 const ServiceDetails = () => {
   const location = useLocation();
-  console.log(location);
   useTitle("service details");
   const loaderData = useLoaderData();
   const { user } = useContext(userInfo);
-  // console.log(user);
   const [reviews, setReviews] = useState();
   const [load, setLoad] = useState(false);
-  // console.log(load);
+
   useEffect(() => {
-    fetch(`http://localhost:5000/review/`)
+    fetch(`https://server-omega-eosin.vercel.app/review/`)
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
-        // console.log(reviews);
-        console.log(data);
       });
   }, [user, load]);
 
@@ -27,7 +23,7 @@ const ServiceDetails = () => {
     event.preventDefault();
     const text = event.target.text.value;
     const milliseconds = new Date().getTime();
-    // console.log(milliseconds)
+
     const userdb = {
       uid: user.uid,
       serviceName: loaderData.name,
@@ -36,10 +32,9 @@ const ServiceDetails = () => {
       img: user.photoURL,
       text: text,
       milliseconds: milliseconds,
-      // useridServiceid: user.uid + loaderData._id,
     };
 
-    fetch("http://localhost:5000/review", {
+    fetch("https://server-omega-eosin.vercel.app/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -48,7 +43,6 @@ const ServiceDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
         setLoad(!load);
       });
     event.target.reset();

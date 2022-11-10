@@ -5,17 +5,14 @@ import { Link } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
 const Service = () => {
   useTitle("service");
-  // const loaderData = useLoaderData();
   const [loading, setLoading] = useState(true);
   const [loaderData, setLoaderData] = useState();
   useEffect(() => {
-    fetch(`http://localhost:5000/services`)
+    fetch(`https://server-omega-eosin.vercel.app/services`)
       .then((res) => res.json())
       .then((data) => {
         setLoaderData(data);
-        // console.log(reviews);
         setLoading(false);
-        console.log(data);
       });
   }, []);
   return (
