@@ -21,6 +21,7 @@ const MyReviews = () => {
 
   const handleDelete = (serviceId) => {
     // event.preventDefault();
+
     const userdb = {
       uid: user.uid,
       serviceId: serviceId,
@@ -36,6 +37,7 @@ const MyReviews = () => {
       .then((data) => {
         console.log(data);
       });
+    notify();
   };
 
   return (

@@ -5,17 +5,19 @@ import { userInfo } from "../../context/AuthProvider";
 const ServiceDetails = () => {
   const loaderData = useLoaderData();
   const { user } = useContext(userInfo);
-  console.log(user);
+  // console.log(user);
   const [reviews, setReviews] = useState();
+  const [load, setLoad] = useState(false);
+  console.log(load);
   useEffect(() => {
     fetch(`http://localhost:5000/review/`)
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
-        console.log(reviews);
-        console.log(data);
+        // console.log(reviews);
+        // console.log(data);
       });
-  }, [user]);
+  }, [user, load]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -39,9 +41,10 @@ const ServiceDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
       });
     event.target.reset();
+    setLoad(!load);
   };
 
   return (
