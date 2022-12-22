@@ -6,8 +6,6 @@
 
 - show others user review
 
-- jwt token
-
 - gmail and email password login
 
 - add review

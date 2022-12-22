@@ -42,7 +42,7 @@ const Login = () => {
         };
 
         // get jwt token
-        fetch("https://server-omega-eosin.vercel.app/jwt", {
+        fetch("https://photographer-server-nine.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",

@@ -22,7 +22,7 @@ const AddService = () => {
       price: item.price,
       description: item.description,
     };
-    fetch("https://server-omega-eosin.vercel.app/addService", {
+    fetch("https://photographer-server-nine.vercel.app/addService", {
       method: "POST",
       headers: {
         "content-type": "application/json",

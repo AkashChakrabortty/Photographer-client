@@ -11,7 +11,7 @@ const EditReview = () => {
   
     const notify = () => toast("Edit success");
     useEffect(() => {
-        fetch(`https://server-omega-eosin.vercel.app/reviews/${reviewId}`)
+        fetch(`https://photographer-server-nine.vercel.app/reviews/${reviewId}`)
           .then((res) => res.json())
           .then((data) => {
         
@@ -26,7 +26,7 @@ const EditReview = () => {
         data['text'] = text;
         const userdb = {text};
     
-        fetch(`https://server-omega-eosin.vercel.app/reviews/edit/${data._id}`, {
+        fetch(`https://photographer-server-nine.vercel.app/reviews/edit/${data._id}`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",

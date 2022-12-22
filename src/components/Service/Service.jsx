@@ -8,7 +8,7 @@ const Service = () => {
   const [loading, setLoading] = useState(true);
   const [loaderData, setLoaderData] = useState();
   useEffect(() => {
-    fetch(`https://server-omega-eosin.vercel.app/services`)
+    fetch(`https://photographer-server-nine.vercel.app/services`)
       .then((res) => res.json())
       .then((data) => {
         setLoaderData(data);

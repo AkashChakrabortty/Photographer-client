@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         loader: async () => {
-          return fetch("https://server-omega-eosin.vercel.app/");
+          return fetch("https://photographer-server-nine.vercel.app/");
         },
         element: <Home></Home>,
       },
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         path: "/services/:id",
         loader: async ({ params }) => {
           return fetch(
-            `https://server-omega-eosin.vercel.app/services/${params.id}`
+            `https://photographer-server-nine.vercel.app/services/${params.id}`
           );
         },
         element: <ServiceDetails></ServiceDetails>,
@@ -68,7 +68,7 @@ const router = createBrowserRouter([
       {
         path: "/addService",
         loader: async () => {
-          return fetch("https://server-omega-eosin.vercel.app/services");
+          return fetch("https://photographer-server-nine.vercel.app/services");
         },
         element: <AddService></AddService>,
       },

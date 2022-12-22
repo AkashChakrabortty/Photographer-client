@@ -11,7 +11,7 @@ const MyReviews = () => {
   const [delet, setDelete] = useState(false);
   const notify = () => toast("Delete success");
   useEffect(() => {
-    fetch(`https://server-omega-eosin.vercel.app/review/${user?.uid}`, {
+    fetch(`https://photographer-server-nine.vercel.app/review/${user?.uid}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("photographer")}`,
       },
@@ -30,7 +30,7 @@ const MyReviews = () => {
       serviceId: serviceId,
     };
     fetch(
-      `https://server-omega-eosin.vercel.app/review/delete?id=${serviceId}`,
+      `https://photographer-server-nine.vercel.app/review/delete?id=${serviceId}`,
       {
         method: "DELETE",
       }

@@ -12,7 +12,7 @@ const ServiceDetails = () => {
   const [load, setLoad] = useState(false);
 
   useEffect(() => {
-    fetch(`https://server-omega-eosin.vercel.app/review/`)
+    fetch(`https://photographer-server-nine.vercel.app/review/`)
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
@@ -34,7 +34,7 @@ const ServiceDetails = () => {
       milliseconds: milliseconds,
     };
 
-    fetch("https://server-omega-eosin.vercel.app/review", {
+    fetch("https://photographer-server-nine.vercel.app/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",
